@@ -1,0 +1,5 @@
+export { default as Autos } from './Autos'
+export { default as Camiones } from './Camiones'
+export { default as OperativosMain } from './Main'
+export { default as Motos } from './Motos'
+export { default as OperativosRoutes } from './Routes'
