@@ -1,4 +1,4 @@
-import Axios, { AxiosResponse } from 'axios'
+import Axios from 'axios'
 import {
   IBarrio,
   ILicencias,
@@ -25,17 +25,20 @@ type SetterProps<T> = {
   headers?: any
 }
 
-export const setter = async <T = any>({
+export const setter = async <T = any, K = T>({
   route,
   body,
   headers,
 }: SetterProps<T>) => {
-  const { data }: AxiosResponse<T> = await axios.post<T>(route, body, headers)
+  const { data } = await axios.post<K>(route, body, headers)
   return data
 }
 
-export const updater = async <T = any>({ route, body }: SetterProps<T>) => {
-  const { data }: AxiosResponse<T> = await axios.put<T>(route, body)
+export const updater = async <T = any, K = T>({
+  route,
+  body,
+}: SetterProps<T>) => {
+  const { data } = await axios.put<K>(route, body)
   return data
 }
 

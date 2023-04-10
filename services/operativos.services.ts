@@ -3,6 +3,10 @@ import {
   OperativoAutos,
   OperativoCamiones,
   OperativoMotos,
+  IMotivosPaseo,
+  IZonasPaseo,
+  OperativoDiario,
+  OperativoPaseo,
 } from '../types'
 import { getEnums, getter, setter } from './mains.services'
 
@@ -51,13 +55,6 @@ export const geocoding = async (type: string) => {
 
   await types[type]()
 }
-
-import {
-  IMotivosPaseo,
-  IZonasPaseo,
-  OperativoDiario,
-  OperativoPaseo,
-} from '../types'
 
 export const nuevoControl = async (body) =>
   await setter<OperativoDiario>({ route: '/control/diario', body })
